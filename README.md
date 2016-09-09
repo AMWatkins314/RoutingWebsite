@@ -1,0 +1,1 @@
+Routing Website powered by Genetic Algorithms: CSUN 2-person team project using Java, Javascript, Servlets, Google Maps API, HTML, CSS, and Selenium that takes user input locations and finds a best route using a genetic algorithm which minimizes the absolute distance between Latitude and Longitude coordinates.
