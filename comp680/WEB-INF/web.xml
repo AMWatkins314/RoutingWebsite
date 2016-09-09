@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  version="3.1"
+  metadata-complete="false"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" >
+    <!-- Written by AWatkins -->
+    <description>
+      Route_Me - a program that uses a genetic algorithm to solve the travelling salesman problem to route uses to an optimal path. 
+    </description>
+    <display-name>Route_Me</display-name>
+    <welcome-file-list>
+       <welcome-file>Route_Me.html</welcome-file>
+       <welcome-file>About.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Define servlets that are included in the application -->
+    <servlet>
+        <servlet-name>Route_Me</servlet-name>
+        <servlet-class>project.Route_Me</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Route_Me</servlet-name>
+        <url-pattern>/project/Route_Me</url-pattern>
+    </servlet-mapping>
+
+</web-app>

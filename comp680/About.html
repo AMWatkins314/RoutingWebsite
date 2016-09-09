@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Route_Me</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8S3lSXrkSNn-l0Q3fTu_8hk561tkBeh0"></script>
+<script type="text/javascript" src="Route_Me.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+   <!-- begin #header -->
+   <div id="wrapper">
+      <div id="header-wrapper" class="container">
+         <div id="header" class="container">
+	    <div id="logo">
+	       <h1><img src="images/ColorfulGlobe.jpg" alt="Route_Me_Logo" height="38" width="38"><a href="#">Route_Me</a></h1>
+	    </div>
+	    <div id="menu">
+	       <ul>
+	         <li><a href="../comp680/Route_Me.html">Home</a></li>
+		 <li class="current_page_item"><a href="#">About</a></li>
+		 <li><a href="mailto:amanda.hires.766@my.csun.edu">Contact</a></li>
+              </ul>
+         </div>
+      </div>
+      <div><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+   </div>
+   <!-- end #header -->
+   <!-- begin #page -->
+   <div id="page">
+      <div id="content">
+         <div class="post">
+	    <div class="entry">
+	       <p><h3 class="title">How To Use:</h3>
+                  <li>Enter a starting / ending address. This program assumes you will be making a round-trip journey. An address can be any type of location that google maps can process, including: actual addresses with city, state, country, and zip code, geo-coordinates, intersections and more -- see: <a href="https://support.google.com/maps/answer/3092445?co=GENIE.Platform%3DDesktop&hl=en">search locations on Google Maps.</a> </li>
+                  <li>Enter at least one location to visit in the first text area.</li>
+                  <li>Click on the 'Add Another Address' button to add text areas that you can enter more locations to visit in. Note that you can only add locations once you have entered your start/end address and have entered a location in the first text box.</li>
+		  <li>If you'd like to remove a location, simply click on the 'Remove Address' button. Note that this button is only for added locations.</li> 
+		  <li>Once your start/end address and at least one location have been entered, then click on the 'Submit' button to process a 'best route'. Note that the best route is distance between the location's geocoordinates as the crow flies, so your routing does not take into consideration actual roads or traffic on those roads.</li>
+		  <li>Your 'best route' will be displayed in a new web page in Google Maps.</li>
+		  <li>You may enter as many addresses as you want, but keep in mind that due to Google Maps geocoding constraints, for approximately every 10 addresses processed there will be a 3 second wait to avoid hitting Google's OVER_QUERY_LIMIT.</li>  
+               </p>
+	       <p><h3 class="title">Error Messages:</h3>
+                  <li>You will see an error message if you attempt to add another address without first filling out the start/end and first locations fields.</li> 
+                  <li>You will see an error message if you submit the form without first filling out the start/end and first locations fields.</li> 
+                  <li>You will see an error message if you submit the form with locations that do not exist.</li> 
+                  <li>Should you encounter an error message, confirm that you have entered valid locations for the start/end address and the first location address. If any additional addresses have been entered then also confirm that those addresses are also valid.</li> 
+               </p>
+	    </div>
+         </div>
+	 <!-- end #content -->
+      </div>
+      <div class="container"><img src="images/spacer.gif" width="1000" height="1" alt="" /></div>
+      <!-- end #page -->
+   </div>
+   <!-- begin #footer -->
+   <div id="footer">
+      <p><strong><a href="http://www.csun.edu/~amh37676/">Copyright (c) 2016 Route_Me. All rights reserved.</a></strong></p>
+   </div>
+   <!-- end #footer -->
+   </body>
+</html>

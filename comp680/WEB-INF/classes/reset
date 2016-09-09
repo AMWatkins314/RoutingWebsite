@@ -1,0 +1,4 @@
+#! /bin/bash
+cd /Users/kyle/Development/Web/apache-tomcat-8.0.33/webapps/comp680/WEB-INF/classes
+javac -source 1.8 -target 1.8 -classpath ../../../../lib/servlet-api.jar project/Salesman.java project/Route_Me.java
+../../../../bin/startup.sh

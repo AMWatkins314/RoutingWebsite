@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Route_Me</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8S3lSXrkSNn-l0Q3fTu_8hk561tkBeh0"></script>
+    <script type="text/javascript" src="Route_Me.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+    <div id="processing_fader">
+        <br>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <BR>
+        <center>
+            <h2>Your request is running, please be patient</h2>
+            <br>
+            <div class="loader">Processing...</div>
+        </center>
+    </div>
+    <!-- begin #header -->
+    <div id="wrapper">
+        <div id="header-wrapper" class="container">
+            <div id="header" class="container">
+                <div id="logo">
+                    <h1><img src="images/ColorfulGlobe.jpg" alt="Route_Me_Logo" height="38" width="38"><a href="#">Route_Me</a></h1>
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li class="current_page_item"><a href="#">Home</a></li>
+                        <li><a href="../comp680/About.html">About</a></li>
+                        <li><a href="mailto:amanda.hires.766@my.csun.edu">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+        </div>
+        <!-- end #header -->
+        <!-- begin #page -->
+        <div id="page">
+            <div id="content">
+                <div class="post">
+                    <div style="clear: both;">&nbsp;</div>
+                    <div class="entry">
+                        <h2 class="title"><a href="#">Find Your Path.</a></h2>
+                        <br>
+                        <p>Welcome to <strong>Route_Me</strong>, a distance-minimizing route suggester powered by genetic algorithms and Google Maps.</p>
+                        <p>Enter:
+                            <li>Your starting / ending address</li>
+                            <li>Each location to visit</li>
+                            <li>Click on 'Submit'</li>
+                        </p>
+                    </div>
+                </div>
+                <div id="addr_add_err" style="display:none">
+                    <p class="error"><b>Error:</b> A starting/ending address and at least one address to visit must be entered before adding more addresses to visit.</p>
+                </div>
+                <div id="addr_submit_err" style="display:none">
+                    <p class="error"><b>Error:</b> A starting/ending address and at least one address to visit must be entered.</p>
+                </div>
+                <div id="google_err" style="display:none">
+                    <p class="error"><b>Error:</b> Google Maps has encountered an error. Please check your locations and try again.</p>
+                </div>
+                <div id="rerun">
+                    <h1> Rerun last request:</h1> Your last request has been saved. You may rerun the process with the same parameters if you want to try to find a different route.
+                    <br>
+                    <input type='button' name='rerunButton' id='rerunButton' value='Rerun last request' onClick="rerun();">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <form name="routemeForm" method="post" action="project/Route_Me">
+                    <h1> Run Parameters:</h1>A value of 0 will ignore these parameters
+                    <br>
+                    <br>
+                    <strong>Number of Threads: </strong>
+                    <input type="number" name="quantity" min="0" max="100" name="numThreads" id="numThreads">
+                    <br>
+                    <br>
+                    <strong>Runtime in Seconds:</strong>
+                    <input type="number" name="quantity" min="0" max="100" name="numSeconds" id="numSeconds">
+                    <br>
+                    <br>
+                    <strong>Number of generations per thread:</strong>
+                    <input type="number" name="quantity" min="0" max="100000000" name="numGenerations" id="numGenerations">
+                    <br>
+                    <br>
+                    <br>
+                    <h1>Locations:</h1>
+                    <strong>Starting/Ending Address:</strong>
+                    <input type='text' class='userLoc' name='startLoc' id='startLoc'>
+                    <br>
+                    <div name='addedLocations' id='addedLocations'>
+                        <br>
+                        <strong>Addresses to Visit:</strong>
+                        <br>
+                        <div name='div_0' id='div_0'>
+                            <input type='text' class='userLoc' name='loc_0' id='loc_0'>
+                        </div>
+                        <input type='button' name='addMoreLocations' id='addMoreLocations' value='Add Another Address' onClick="addLocation('addedLocations');">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- Button cannot be of type submit because then when it posts it kills the google geocode call -->
+                    <input type='button' name='Submit' id='Submit' value='Submit' onClick="processAddresses();" />
+                </form>
+            </div>
+            <!-- end #content -->
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+        <div class="container"><img src="images/img03.png" width="1000" height="40" alt="" /></div>
+        <!-- end #page -->
+    </div>
+    <!-- begin #footer -->
+    <div id="footer">
+        <p><strong><a href="http://www.csun.edu/~amh37676/">Copyright (c) 2016 Route_Me. All rights reserved.</a></strong></p>
+    </div>
+    <!-- end #footer -->
+    <!-- Div to append geocoded string arg to pass to Salesman Java -->
+    <div id="hiddenData" />
+    <script type="application/javascript">
+        checkForRerun();
+    </script>
+</body>
+
+</html>
